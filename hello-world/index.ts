@@ -8,7 +8,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         : "Hello from Azure Function. You can pass name query string to the get or post request";
 
     const status = name === 'error' ? 500 : 200
-    const body = JSON.stringify({ message })
+    const body = JSON.stringify({ message, version: "1.1" })
     const headers = { "Content-Type": "application/json" }
 
     context.res = {
